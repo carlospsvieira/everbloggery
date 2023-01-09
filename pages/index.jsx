@@ -32,7 +32,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="my-12 text-lg font-medium">
-        <h2>See what other people are saying</h2>
+        <h2>See what people are saying</h2>
         {allPosts.map((post) => <Message key={post.id} {...post} />)}
       </div>
     </div>
