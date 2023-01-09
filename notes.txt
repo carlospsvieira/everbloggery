@@ -2,5 +2,5 @@ LIMIT TO AREATEXT COUNT HAS TO BE SET
 
 REVERSE AUTH IN FIREBASE FOR PRODUCTION TO
 allow read, write: if false; (INITIAL)
-allow read, write: if request.auth != null; (MAY BE FOR PRODUCTION);
-allow read, write: if false; (WHAT ENTERED TO WORK)
+allow read, write: if request.time > timestamp.date(2020, 9, 10); (FOR DEVELOPMENT)
+allow read, write: if request.auth != null; (FOR PRODUCTION);
