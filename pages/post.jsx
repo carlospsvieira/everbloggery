@@ -30,7 +30,7 @@ export default function Post() {
         toastId: 'do-not-duplicate',
       });
     } else {
-      //Creat new post
+      //Create new post
       const collectionRef = collection(db, "posts");
       await addDoc(collectionRef, {
         ...post,

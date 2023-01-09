@@ -33,7 +33,7 @@ export default function Home() {
       </Head>
       <div className="my-12 text-lg font-medium">
         <h2>See what other people are saying</h2>
-        {allPosts.map((post) => <Message {...post} />)}
+        {allPosts.map((post) => <Message key={post.id} {...post} />)}
       </div>
     </div>
   )
