@@ -20,18 +20,22 @@ export default function Post() {
 
     //Checks for description length
     if (!post.description || post.description.length > 200) {
-      toast.error("Description is empty or too long 🤔", {
+      toast.error("Description is either empty or too long", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 2000,
         toastId: 'do-not-duplicate',
       });
       return;
     }
-
+    //Edit post
     if (post?.hasOwnProperty("id")) {
       const docRef = doc(db, "posts", post.id);
       const updatedPost = { ...post, timestamp: serverTimestamp() }
       await updateDoc(docRef, updatedPost);
+      toast.success("Post updated!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+      });
       return route.push("/");
     } else {
       //Create new post
@@ -44,6 +48,10 @@ export default function Post() {
         username: user.displayName,
       });
       setPost({ description: "" });
+      toast.success("New post!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+      });
       return route.push("/");
     }
   }

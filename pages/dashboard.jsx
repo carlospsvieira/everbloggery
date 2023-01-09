@@ -2,11 +2,19 @@ import { auth, db } from "../utils/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { collection, deleteDoc, doc, onSnapshot, query, where } from "firebase/firestore";
-import Message from "../components/Message";
 import { BsTrash2Fill } from "react-icons/bs"
 import { AiFillEdit } from "react-icons/ai"
+import { toast } from "react-toastify";
 import Link from "next/link";
+import Message from "../components/Message";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  onSnapshot,
+  query,
+  where
+} from "firebase/firestore";
 
 export default function Dashboard() {
   const route = useRouter();
@@ -30,6 +38,10 @@ export default function Dashboard() {
   const deletePost = async (id) => {
     const docRef = doc(db, "posts", id);
     await deleteDoc(docRef);
+    toast.success("Post deleted!", {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 1000,
+    });
   }
 
   // Get user's data
@@ -47,7 +59,7 @@ export default function Dashboard() {
               <button
                 onClick={() => deletePost(post.id)}
                 className="text-pink-600 flex items-center justify-center gap-2 py-2 text-sm">
-                <BsTrash2Fill className="text-2xl" />
+                <BsTrash2Fill className="text-lg" />
                 Delete
               </button>
               <Link href={{ pathname: "/post", query: post }}>
