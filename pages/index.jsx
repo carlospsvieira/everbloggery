@@ -36,16 +36,20 @@ export default function Home() {
       </Head>
       <div className="my-12 text-lg font-medium">
         <div className="flex justify-center">
-          { !user ? "Join now to see what people are saying" : "See what other people are saying" }
+          {!user ? (
+            <p>Microblog Everywhere!</p>
+          ) : (
+            <p>See what other people are saying</p>
+          )}
         </div>
         {allPosts.map((post) => (
-        <Message key={post.id} {...post}>
-          <Link href={{pathname: `/${post.id}`, query: {...post}}}>
-            <button className="hover:underline text-slate-400">
-            {post.comments?.length > 0 ? post.comments?.length : 0} comments
-            </button>
-          </Link>
-        </Message>
+          <Message key={post.id} {...post}>
+            <Link href={{ pathname: `/${post.id}`, query: { ...post } }}>
+              <button className="hover:underline text-slate-400">
+                {post.comments?.length > 0 ? post.comments?.length : 0} comments
+              </button>
+            </Link>
+          </Message>
         ))}
       </div>
     </div>
