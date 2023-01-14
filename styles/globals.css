@@ -18,3 +18,25 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.globe {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  margin: 5rem auto;
+  background: #888 url('../images/panorama.jpg') 0 0 repeat;
+  border-radius: 50%;
+  background-size: 800px;
+  animation: rotate 4s linear infinite;
+  transition: transform 200ms linear;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotate {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}

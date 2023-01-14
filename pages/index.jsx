@@ -35,9 +35,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="my-12 text-lg font-medium">
-        <div className="flex justify-center">
+        <div className="flex flex-col justify-center">
           {!user ? (
-            <p>Microblog Everywhere!</p>
+          <>
+          <p className="text-center text-xl">Microblog Everywhere!</p>
+          <div className="globe"></div>
+          </>
           ) : (
             <p>See what other people are saying</p>
           )}
