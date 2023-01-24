@@ -14,4 +14,8 @@ so our parents could keep up with us. I built this full-stack app aiming a more 
 - Tailwind CSS
 - Firebase
 
+#### Requirements:
+- Authentication with Google email
+- Authorization to Post, Update and Delete.
+
 View this app here https://everbloggery.vercel.app/
